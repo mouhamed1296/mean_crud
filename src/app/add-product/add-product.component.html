@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container p-4 d-flex flex-column border border-2 border-dark">
+  <h1 class="text-center">Ajouter un produit</h1>
+  <form class="d-flex flex-column gap-3 p-5">
+    <app-input
+    [control]="formGroup.controls.libelle"
+     inputId="libelle"
+     label="Libelle"
+     type="text"
+     placeholder="libelle"
+     ></app-input>
+     <app-input
+     [control]="formGroup.controls.prix"
+      inputId="prix"
+      label="Prix"
+      type="text"
+      placeholder="prix"
+      ></app-input>
+    <app-select
+    [control]="formGroup.controls.categorie"
+    (change)="changeCategorie($event)"
+     inputId="categorie"
+     label="Categorie"
+     [options]="options"
+    >
+    </app-select>
+    <app-input
+    [control]="formGroup.controls.email"
+     inputId="email"
+     label="Email"
+     type="email"
+     placeholder="email"
+    >
+    </app-input>
+    <div class="col-12">
+      <button
+      type="button"
+      [disabled]="formGroup.invalid"
+      (click)="submitForm()"
+      class="btn btn-dark"
+      [title]="formGroup.invalid && 'Veuillez remplir le formulaire avant de soumettre'"
+      >
+      Ajouter
+    </button>
+    </div>
+  </form>
+</div>
